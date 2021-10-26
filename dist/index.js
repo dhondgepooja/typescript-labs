@@ -77,6 +77,7 @@ class PersonNew {
         return `${this.name} is now registered`;
     }
 }
+// Subclasses
 class Employee extends Person {
     constructor(id, name, position) {
         super(id, name);
@@ -86,3 +87,16 @@ class Employee extends Person {
 const emp1 = new Employee(1, "pooja", "developer");
 console.log(emp1.register());
 console.log(emp1.position);
+// Generics
+function getArray(items) {
+    return new Array().concat(items);
+}
+let numArray = getArray([1, 2, 3, 4]);
+let strArray = getArray(["jack", "jill", "john"]);
+numArray.push("one"); // this will accept string since we have type any.
+function getGenericArray(items) {
+    return new Array().concat(items);
+}
+let genNumArray = getGenericArray([1, 2, 3, 4]);
+let genStrArray = getGenericArray(["jack", "jill", "john"]);
+// getGenericArray.push("one")  //this is now not allowed
